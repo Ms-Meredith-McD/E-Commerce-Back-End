@@ -21,13 +21,14 @@ router.get('/', async (req, res) => {
           attributes: ["tag_name"],
         },
       ],
-    }),
-      res.json(payload);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
+    });
+
+    res.json(payload);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 // get one product
   // TODO: find a single product by its `id`
