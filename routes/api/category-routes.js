@@ -3,26 +3,66 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-router.get('/', (req, res) => {
-  // TODO: find all categories
-  // include its associated Products
+// TODO: find all categories
+  // include its associated Products  - DONE
+  router.get('/', async (req, res) => {
+    const payload = await Category.findAll({
+      include: [Product]
+    })
+    res.json(payload);
+  });
+
+//TODO: find one category by its `id` value
+  // be sure to include its associated Products - DONE
+  router.get('/:id', async (req, res) => {
+    const payload = await Category.findByPk(req.params.id,{
+      include: [Product]
+    })
+    res.json(payload);
+  });
+
+// TODO: create a new category  - DONE
+  router.post('/', async (req, res) => {
+    try {
+      const payload = await Category.create(req.body)
+      res.json(payload);
+    } catch( err ) {
+      res.status(500).json({ error: err.message })
+    }
+  });
+
+
+//TODO: update a category by its `id` value - DONE
+router.put('/:id', async (req, res) => {
+  try {
+    const payload = await Category.update(
+      req.body, 
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+    res.json(payload)
+  } catch( err ){
+    res.status(500).json({ error: err.message })
+  }
 });
 
-router.get('/:id', (req, res) => {
-  //TODO: find one category by its `id` value
-  // be sure to include its associated Products
-});
-
-router.post('/', (req, res) => {
-  // TODO: create a new category
-});
-
-router.put('/:id', (req, res) => {
-  //TODO: update a category by its `id` value
-});
-
-router.delete('/:id', (req, res) => {
-  //TODO: delete a category by its `id` value
-});
+  //TODO: delete a category by its `id` value - DONE
+  router.delete('/:id', async (req, res) => {
+    try {
+      await Category.destroy(
+        {
+          where: {
+            id: req.params.id
+          }
+        }
+      )
+      res.json({ status: "ok" })
+    } catch( err ){
+      res.status(500).json({ error: err.message })
+    }
+  });
 
 module.exports = router;
