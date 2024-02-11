@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
-Product = require('../models/Product'); 
+// Product = require('../../models/Product'); 
 
 // The `/api/tags` endpoint
 
@@ -69,7 +69,7 @@ router.get('/', async (req, res) => {
   });
 
 // TODO: delete on tag by its `id` value - DONE
-rrouter.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const tag = await Tag.findByPk(req.params.id);
 
