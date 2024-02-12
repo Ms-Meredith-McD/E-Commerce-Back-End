@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
         },
         {
           model: Tag,
-          as: "products_tag",
+          as: "tags",
           attributes: ["tag_name"],
         },
       ],
@@ -60,14 +60,14 @@ router.post('/', (req, res) => {
       product_name: "Basketball",
       price: 200.00,
       stock: 3,
-      tagIds: [1, 2, 3, 4]  - DONE
+      tagIds: [1, 2, 3, 4] 
     }
   */
     Product.create(req.body)
     .then((product) => {
       // TODO:
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model - DONE 
-      if (req.body.tagIds.length) {
+      if (req.body.tagIds?.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
