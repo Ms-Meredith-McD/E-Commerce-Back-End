@@ -35,17 +35,18 @@ const { Category, Product } = require('../../models');
 //TODO: update a category by its `id` value - DONE
 router.put('/:id', async (req, res) => {
   try {
-    const payload = await Category.update(
-      req.body, 
-      {
-        where: {
-          id: req.params.id
-        }
-      }
-    )
-    res.json(payload)
-  } catch( err ){
-    res.status(500).json({ error: err.message })
+    const category = await Category.findByPk(req.params.id);
+  
+    if (!category) {
+      res.status(404).json({ error: 'Category not found' });
+      return;
+    }
+
+    await category.update(req.body);
+    res.json(category);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to update category' });
   }
 });
 

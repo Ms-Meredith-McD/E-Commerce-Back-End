@@ -90,12 +90,14 @@ router.post('/', (req, res) => {
 // update product
 router.put('/:id', (req, res) => {
   // TODO: update product data - DONE
-  Product.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((product) => {
+  // Product.update(req.body, {
+  //   where: {
+  //     id: req.params.id,
+  //   },
+  // })
+  Product.findByPk(req.params.id)
+    .then( async (product) => {
+      const updatedProduct = await product.update(req.body);
       if (req.body.tagIds && req.body.tagIds.length) {
 
         ProductTag.findAll({
@@ -124,7 +126,7 @@ router.put('/:id', (req, res) => {
         });
       }
 
-      return res.json(product);
+      return res.json(updatedProduct);
     })
     .catch((err) => {
       console.log(err);
