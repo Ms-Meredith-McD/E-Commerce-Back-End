@@ -10,7 +10,7 @@ The goal of the E-Commerce Back-End is to build the back end for an e-commerce s
 3. A development database is created and is seeded with test data when the user adds the schema and seed commands.
 4. The user's server is started and the Sequelize models are synced to the MySQL database when the user enters the command to invoke the application.
 5. The data for the categories, products, and tags routes are shown in formatted JSON when API GET routes are opened in Postman.
-6. The user is able to successfull create, update, and delete data in their database when they test API POST, PUT, and DELETE routes in Postman.
+6. The user is able to successfully create, update, and delete data in their database when they test API POST, PUT, and DELETE routes in Postman.
 
 ## Installation
 1. Clone the project
