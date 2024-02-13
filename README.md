@@ -1,7 +1,7 @@
-# Employee Tracker
+# E-Commerce Back-End
 
 ## Description
-The goal of the E-Commerce-Back-End is to build the back end for an e-commerce site by modifying starter code provided by the EdX Univeristy of Minnesota FullStack Coding Bootcamp.  The goal is to configure a working Express.js API to use Sequelize to interact with a MySQL database. In addition, a walkthrough video is provided that demonstrates the functionality of the application.
+The goal of the E-Commerce Back-End is to build the back end for an e-commerce site by modifying starter code provided by the EdX Univeristy of Minnesota FullStack Coding Bootcamp.  The goal is to configure a working Express.js API to use Sequelize to interact with a MySQL database. In addition, a walkthrough video is provided that demonstrates the functionality of the application.
 
 
 ## Specific Objectives
