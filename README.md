@@ -19,7 +19,7 @@ The goal of the E-Commerce Back-End is to build the back end for an e-commerce s
 4. Run npm install
 5. Open mysql and create the table
 6. Exit mysql and type "node seeds/" to seed the table
-7. To start the server type "node index.js"
+7. To start the server type "node server.js"
 8. Open Postman and test the routes 
 
 
