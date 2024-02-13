@@ -6,7 +6,7 @@ The goal of the E-Commerce Back-End is to build the back end for an e-commerce s
 
 ## Specific Objectives
 1. Create a functional Express.js API
-2. Connect to a database using sequelize when the user adds their MySQL username, and MySQL password to an environment variable file (.envEXAMPLE is provided)
+2. Connect to a database using sequelize when the user adds their database name, their MySQL username, and MySQL password to an environment variable file (.envEXAMPLE is provided)
 3. A development database is created and is seeded with test data when the user adds the schema and seed commands.
 4. The user's server is started and the Sequelize models are synced to the MySQL database when the user enters the command to invoke the application.
 5. The data for the categories, products, and tags routes are shown in formatted JSON when API GET routes are opened in Postman.
